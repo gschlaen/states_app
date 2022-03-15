@@ -10,9 +10,10 @@ class Page2Page extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: StreamBuilder(
+          initialData: userService.user,
           stream: userService.userStream,
           builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
-            return snapshot.hasData ? Text('Name: ${snapshot.data!.name}') : const Text('Page 2');
+            return snapshot.hasData ? Text('Name: ${userService.user!.name}') : const Text('Page 2');
           },
         ),
         centerTitle: true,
